@@ -1,0 +1,13 @@
+Redis
+/etc/redis/redis.conf 
+ /usr/local/reids1/bin/redis.conf
+
+
+Postgresql
+
+配置文件postgresql.conf基本属性修改
+前面所述，数据存储文件位置默认为/var/lib/pgsql/12/data/
+配置文件pg_hba.conf配置网络访问权限
+pg_ident.conf
+
+/var/lib/postgresql/data
