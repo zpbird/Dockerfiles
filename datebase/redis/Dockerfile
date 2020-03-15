@@ -8,11 +8,14 @@ echo "deb http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib
 echo "deb http://mirrors.aliyun.com/debian-security buster/updates main" >>/etc/apt/sources.list && \
 echo "deb http://mirrors.aliyun.com/debian buster-backports main non-free contrib" >>/etc/apt/sources.list && \
 apt-get update && \
-apt-get install -y supervisor htop glances --no-install-recommends && \
-rm -rf /var/lib/apt/lists/*
+apt-get install -y iproute2 supervisor htop glances --no-install-recommends && \
+rm -rf /var/lib/apt/lists/* && \
+mkdir /etc/redis && \
+mkdir /var/log/redis
 
 COPY ./supervisor/ /etc/supervisor/
 COPY ./other/localtime /etc/localtime
+COPY ./conf/ /etc/redis/
 
 EXPOSE 6379
 
