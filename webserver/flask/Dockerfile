@@ -8,7 +8,7 @@ echo "deb https://mirrors.aliyun.com/debian/ buster-updates main non-free contri
 echo "deb https://mirrors.aliyun.com/debian-security buster/updates main" >>/etc/apt/sources.list && \
 echo "deb https://mirrors.aliyun.com/debian buster-backports main non-free contrib" >>/etc/apt/sources.list && \
 apt-get update && \
-apt-get install -y supervisor htop --no-install-recommends && \
+apt-get install -y supervisor htop glances --no-install-recommends && \
 rm -rf /var/lib/apt/lists/* && \
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir \
 gunicorn==20.0.4 \

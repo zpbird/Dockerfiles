@@ -1,4 +1,4 @@
-FROM nginx:1.16.1
+FROM postgres:12.2
 
 MAINTAINER zpbird
 
@@ -13,13 +13,8 @@ rm -rf /var/lib/apt/lists/*
 
 COPY ./supervisor/ /etc/supervisor/
 COPY ./other/localtime /etc/localtime
-COPY ./html/ /usr/share/nginx/html/
-COPY ./conf.d/ /etc/nginx/conf.d/
-COPY ./nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 80 5000 8000 7011
-
-STOPSIGNAL SIGTERM
+EXPOSE 5432
 
 CMD ["/usr/bin/supervisord"]
 
