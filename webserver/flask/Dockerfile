@@ -39,7 +39,7 @@ COPY ./gunicorn/gunicorn.conf.py /etc/gunicorn/gunicorn.conf.py
 COPY ./other/localtime /etc/localtime
 COPY ./app_demo/ /app/
 
-EXPOSE 8000 5000 7012
+EXPOSE 7012
 
 CMD ["/usr/bin/supervisord"]
 

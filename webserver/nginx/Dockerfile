@@ -17,7 +17,7 @@ COPY ./html/ /usr/share/nginx/html/
 COPY ./conf.d/ /etc/nginx/conf.d/
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 80 5000 8000 7011
+EXPOSE 7011
 
 STOPSIGNAL SIGTERM
 
