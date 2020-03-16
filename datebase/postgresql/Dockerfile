@@ -14,7 +14,7 @@ rm -rf /var/lib/apt/lists/*
 COPY ./supervisor/ /etc/supervisor/
 COPY ./other/localtime /etc/localtime
 
-EXPOSE 5432
+EXPOSE 7013
 
 CMD ["/usr/bin/supervisord"]
 

@@ -17,7 +17,7 @@ COPY ./supervisor/ /etc/supervisor/
 COPY ./other/localtime /etc/localtime
 COPY ./conf/ /etc/redis/
 
-EXPOSE 6379
+EXPOSE 7015
 
 CMD ["/usr/bin/supervisord"]
 
