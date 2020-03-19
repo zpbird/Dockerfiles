@@ -4,8 +4,8 @@ services:
   nginx:
     image: zpbird/nginx:0.5
     volumes:
-      - "/store/zpbird/project/app_ttjt/logs/nginx/nginx:/var/log/nginx"
-      - "/store/zpbird/project/app_ttjt/logs/nginx/supervisor:/var/log/supervisor"
+      - "/store/project/app_ttjt/logs/nginx/nginx:/var/log/nginx"
+      - "/store/project/app_ttjt/logs/nginx/supervisor:/var/log/supervisor"
     ports:
       - "7011:7011"
     networks:      
@@ -15,9 +15,9 @@ services:
   flask:
     image: zpbird/flask:0.5
     volumes:
-      - "/store/zpbird/project/app_ttjt/src:/app"
-      - "/store/zpbird/project/app_ttjt/logs/flask/supervisor:/var/log/supervisor"
-      - "/store/zpbird/project/app_ttjt/logs/flask/gunicorn:/var/log/gunicorn"
+      - "/store/project/app_ttjt/src:/app"
+      - "/store/project/app_ttjt/logs/flask/supervisor:/var/log/supervisor"
+      - "/store/project/app_ttjt/logs/flask/gunicorn:/var/log/gunicorn"
     ports:
       - "7012:7012"
     networks:      
@@ -29,9 +29,9 @@ services:
     environment:
       POSTGRES_PASSWORD: 790204
     volumes:
-      - "/store/zpbird/project/app_ttjt/database/postgresql/data:/var/lib/postgresql/data"
-      - "/store/zpbird/project/app_ttjt/logs/postgresql/postgresql:/var/log/postgresql"
-      - "/store/zpbird/project/app_ttjt/logs/postgresql/supervisor:/var/log/supervisor"
+      - "/store/project/app_ttjt/database/postgresql/data:/var/lib/postgresql/data"
+      - "/store/project/app_ttjt/logs/postgresql/postgresql:/var/log/postgresql"
+      - "/store/project/app_ttjt/logs/postgresql/supervisor:/var/log/supervisor"
     ports:
       - "7013:7013"
     networks:      
@@ -41,9 +41,9 @@ services:
   redis:
     image: zpbird/redis:0.5
     volumes:
-      - "/store/zpbird/project/app_ttjt/database/redis/data:/data"
-      - "/store/zpbird/project/app_ttjt/logs/redis/redis:/var/log/redis"
-      - "/store/zpbird/project/app_ttjt/logs/redis/supervisor:/var/log/supervisor"
+      - "/store/project/app_ttjt/database/redis/data:/data"
+      - "/store/project/app_ttjt/logs/redis/redis:/var/log/redis"
+      - "/store/project/app_ttjt/logs/redis/supervisor:/var/log/supervisor"
     ports:
       - "7015:7015"      
     networks:      
@@ -53,8 +53,8 @@ services:
   node:
     image: zpbird/node:0.5
     volumes:
-      - "/store/zpbird/project/app_ttjt/logs/node/supervisor:/var/log/supervisor"
-      - "/store/zpbird/project/app_ttjt/vue_src/:/vue_src/"
+      - "/store/project/app_ttjt/logs/node/supervisor:/var/log/supervisor"
+      - "/store/project/app_ttjt/vue_src/:/vue_src/"
     ports:
       - "8080:8080"  
     networks:      
