@@ -1,12 +1,12 @@
-FROM postgres:12.2
+FROM postgres:11.7
 
 MAINTAINER zpbird
 
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
-echo "deb http://mirrors.aliyun.com/debian/ buster main non-free contrib" >/etc/apt/sources.list && \
-echo "deb http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib" >>/etc/apt/sources.list && \
-echo "deb http://mirrors.aliyun.com/debian-security buster/updates main" >>/etc/apt/sources.list && \
-echo "deb http://mirrors.aliyun.com/debian buster-backports main non-free contrib" >>/etc/apt/sources.list && \
+echo "deb http://mirrors.aliyun.com/debian/ stretch main non-free contrib" >/etc/apt/sources.list && \
+echo "deb http://mirrors.aliyun.com/debian/ stretch-updates main non-free contrib" >>/etc/apt/sources.list && \
+echo "deb http://mirrors.aliyun.com/debian-security/ stretch/updates main" >>/etc/apt/sources.list && \
+echo "deb http://mirrors.aliyun.com/debian/ stretch-backports main non-free contrib" >>/etc/apt/sources.list && \
 apt-get update && \
 apt-get install -y iproute2 supervisor htop glances --no-install-recommends && \
 rm -rf /var/lib/apt/lists/*
