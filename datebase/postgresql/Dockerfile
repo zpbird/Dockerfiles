@@ -1,8 +1,10 @@
 FROM postgres:12.3
 
 MAINTAINER zpbird
-apt-get install -y apt-transport-https ca-certificates --no-install-recommends && \
-rm -rf /var/lib/apt/lists/*
+
+apt-get update && \
+apt-get install -y apt-transport-https ca-certificates --no-install-recommends 
+
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free" >/etc/apt/sources.list && \
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free" >>/etc/apt/sources.list && \
