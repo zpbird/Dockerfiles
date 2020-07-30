@@ -1,4 +1,4 @@
-version: "3"
+version: "3.4"
 
 services:
   nginx:
@@ -25,7 +25,7 @@ services:
         ipv4_address: 172.70.0.12
 
   postgresql:
-    image: zpbird/postgresql:0.5
+    image: zpbird/postgresql:11.7
     environment:
       POSTGRES_PASSWORD: 790204
     volumes:

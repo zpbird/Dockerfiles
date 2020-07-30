@@ -1,4 +1,4 @@
-FROM postgres:11.7
+FROM postgres:12.3
 
 MAINTAINER zpbird
 
@@ -14,7 +14,7 @@ rm -rf /var/lib/apt/lists/*
 COPY ./supervisor/ /etc/supervisor/
 COPY ./other/localtime /etc/localtime
 
-EXPOSE 7013
+EXPOSE 7011
 
 CMD ["/usr/bin/supervisord"]
 
