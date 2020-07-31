@@ -1,0 +1,71 @@
+version: "3.4"
+
+services:
+  nginx:
+    image: zpbird/nginx:0.5
+    volumes:
+      - "/store/project/app_ttjt/logs/nginx/nginx:/var/log/nginx"
+      - "/store/project/app_ttjt/logs/nginx/supervisor:/var/log/supervisor"
+    ports:
+      - "7011:7011"
+    networks:      
+      zpbr0:
+        ipv4_address: 172.70.0.11
+  
+  flask:
+    image: zpbird/flask:0.5
+    volumes:
+      - "/store/project/app_ttjt/src:/app"
+      - "/store/project/app_ttjt/logs/flask/supervisor:/var/log/supervisor"
+      - "/store/project/app_ttjt/logs/flask/gunicorn:/var/log/gunicorn"
+    ports:
+      - "7012:7012"
+    networks:      
+      zpbr0:
+        ipv4_address: 172.70.0.12
+
+  postgresql:
+    image: zpbird/postgresql:11.7
+    environment:
+      POSTGRES_PASSWORD: 790204
+    volumes:
+      - "/store/project/app_ttjt/database/postgresql/data:/var/lib/postgresql/data"
+      - "/store/project/app_ttjt/logs/postgresql/postgresql:/var/log/postgresql"
+      - "/store/project/app_ttjt/logs/postgresql/supervisor:/var/log/supervisor"
+    ports:
+      - "7013:7013"
+    networks:      
+      zpbr0:
+        ipv4_address: 172.70.0.13
+
+  redis:
+    image: zpbird/redis:0.5
+    volumes:
+      - "/store/project/app_ttjt/database/redis/data:/data"
+      - "/store/project/app_ttjt/logs/redis/redis:/var/log/redis"
+      - "/store/project/app_ttjt/logs/redis/supervisor:/var/log/supervisor"
+    ports:
+      - "7015:7015"      
+    networks:      
+      zpbr0:
+        ipv4_address: 172.70.0.15
+
+  node:
+    image: zpbird/node:0.5
+    volumes:
+      - "/store/project/app_ttjt/logs/node/supervisor:/var/log/supervisor"
+      - "/store/project/app_ttjt/vue_src/:/vue_src/"
+    ports:
+      - "8080:8080"  
+    networks:      
+      zpbr0:
+        ipv4_address: 172.70.0.16
+        
+networks:
+  zpbr0:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.70.0.0/24
+
