@@ -9,6 +9,10 @@ services:
       - "/home/zp/data:/var/lib/postgresql/data"
     ports:
       - "5432:5432"
+  nginx:
+    image: zpbird/nginx:1.18.0
+    ports:
+      - "80:80"    
 
 
 
