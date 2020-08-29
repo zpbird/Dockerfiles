@@ -1,4 +1,4 @@
-FROM redis:5.0.8-buster
+FROM redis:6.0.6-buster
 
 MAINTAINER zpbird
 
@@ -15,9 +15,8 @@ mkdir /var/log/redis
 
 COPY ./supervisor/ /etc/supervisor/
 COPY ./other/localtime /etc/localtime
-COPY ./conf/ /etc/redis/
 
-EXPOSE 7015
+EXPOSE 6379
 
 CMD ["/usr/bin/supervisord"]
 

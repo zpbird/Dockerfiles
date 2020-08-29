@@ -13,11 +13,7 @@ services:
     image: zpbird/nginx:1.18.0
     ports:
       - "80:80"    
-
-
-
-
-
-        
-
-
+  redis:
+    image: zpbird/redis:6.0.6
+    ports:
+      - "6379:6379"
